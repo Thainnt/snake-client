@@ -15,18 +15,18 @@ const connect = () => {
     conn.write("Move: up");
   });
 
-  conn.on('connect', () => {
-    conn.write("Move: up");
-    conn.write("Move: down");
-    conn.write("Move: left");
-    conn.write("Move: right");
-  });
+  // conn.on('connect', () => {
+  //   conn.write("Move: up");
+  //   conn.write("Move: down");
+  //   conn.write("Move: left");
+  //   conn.write("Move: right");
+  // });
 
   conn.on('data', (data) => {
     console.log(data);
   });
   
-  return conn;  
+  return conn;
 };
 
 module.exports = {connect};
