@@ -1,3 +1,5 @@
+const { MOVE, MSG } = require("./constants");
+
 let connection;
 
 // setup interface to handle user input from stdin
@@ -12,6 +14,12 @@ const setupInput = (conn) => {
     if (key === '\u0003') {
       process.exit();
     }
+
+    // if (Object.keys(MOVE).includes(key)) {
+    //   connection.write(MOVE[key]);
+    //   return;
+    // }
+
     switch (key) {
       case "w":
         connection.write("Move: up");
@@ -31,6 +39,12 @@ const setupInput = (conn) => {
   };
   
   stdin.on("data", handleUserInput);
+
+  stdin.on("data", (input) => {
+    if (Object.keys(MSG).includes(input)) {
+      connection.write(MSG.input);
+    }
+  });
 
   return stdin;
 };
