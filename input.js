@@ -26,6 +26,8 @@ const setupInput = (conn) => {
         connection.write("Move: right");
         break;
     }
+
+    connection.write("Say: go go go")
   };
   
   stdin.on("data", handleUserInput);
